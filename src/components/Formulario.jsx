@@ -54,18 +54,18 @@ const Formulario = ({colaboradores,setdbc, stateSetShowAlert}) =>    {
                                             
                                             <div>
                                                     <h1>Agregar Colaborador</h1>
-                                                    <form onSubmit={ValidarFormulario}>
-                                                            <input name="nombre" type="text" placeholder="Nombre del colaborador" onChange={(e) => {setNombre(e.target.value)}} value={nombre}></input>
+                                                    <form onSubmit={ValidarFormulario} className='form-box'>
+                                                            <input name="nombre" type="text" placeholder="Nombre del colaborador" onChange={(e) => {setNombre(e.target.value)}} value={nombre} className="form-control"></input>
 
-                                                            <input name="email" type="text" placeholder="Email del colaborador"onChange={(e) => {setEmail(e.target.value)}}value={email}></input>
+                                                            <input name="email" type="text" placeholder="Email del colaborador"onChange={(e) => {setEmail(e.target.value)}}value={email} className="form-control" ></input>
 
-                                                            <input name="edad" type="text" placeholder="Edad del colaborador"onChange={(e) => {setEdad(e.target.value)}}value={edad}></input>
+                                                            <input name="edad" type="text" placeholder="Edad del colaborador"onChange={(e) => {setEdad(e.target.value)}}value={edad} className="form-control"></input>
 
-                                                            <input name="cargo" type="text" placeholder="Cargo del Colaborador"onChange={(e) => {setCargo(e.target.value)}}value={cargo}></input>
+                                                            <input name="cargo" type="text" placeholder="Cargo del Colaborador"onChange={(e) => {setCargo(e.target.value)}}value={cargo} className="form-control"></input>
 
-                                                            <input name="telefono" type="text" placeholder="Teléfono del Colaborador"onChange={(e) => {setTelefono(e.target.value)}} value={telefono}></input>
+                                                            <input name="telefono" type="text" placeholder="Teléfono del Colaborador"onChange={(e) => {setTelefono(e.target.value)}} value={telefono} className="form-control"></input>
 
-                                                            <button className="success" type="submit">Agregar</button>
+                                                            <button className="btn" type="submit">Agregar</button>
                                                     </form>
                                             </div>
                                         )

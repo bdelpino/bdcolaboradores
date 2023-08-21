@@ -17,7 +17,7 @@ const Alerts = (props) => {
     return (
         <>
             { 
-                <Alert key={ stateAlert.color } variant={ stateAlert.color } >
+                <Alert key={ stateAlert.color } variant={ stateAlert.color } className='alert-box' >
                     { stateAlert.message }
                 </Alert>
             }

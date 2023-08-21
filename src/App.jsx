@@ -3,7 +3,7 @@ import {BaseColaboradores} from '../src/assets/script/BaseColaboradores.js'
 import  Listado from './components/Listado.jsx'
 import Formulario from './components/Formulario.jsx'
 import {useState} from 'react'
-
+import Container from 'react-bootstrap/Container';
 import Alerts from './components/Alert'
 import Buscador from './components/Buscador'
 
@@ -33,22 +33,32 @@ function App() {
 
   return (
     <>
-        <div className='container-filter'>
-          <Buscador stateColaboradorFilter={ colaboradorFilter } onChange={ handleChangeFilterColaborador }/>
-        </div>
-        <Listado
-        colaboradores={getFilterColaboradores()}
-        
-        />
+        <Container className='container-root'>
+          <h1>Lista de Colaboradores</h1>
+          <div className='container-filter'>
+            <Buscador stateColaboradorFilter={ colaboradorFilter } onChange={ handleChangeFilterColaborador }/>
+          </div>
+          
+          <div className="container-list">
+            <Listado
+            colaboradores={getFilterColaboradores()}
+            />
+          </div>
 
-        <Formulario
-        colaboradores={dbColaboradores}
-        setdbc={setDbColaboradores}
-        stateSetShowAlert={ setShowAlert }
-        ></Formulario>
+          <div className="container-form">
+            <Formulario
+              colaboradores={dbColaboradores}
+              setdbc={setDbColaboradores}
+              stateSetShowAlert={ setShowAlert }
+            />
+            { showAlert == null ? undefined : <Alerts typeAlert={ showAlert }/>}
+          </div>
+          
+            
+            
+        </Container>
+
         
-        { showAlert == null ? undefined : <Alerts typeAlert={ showAlert }/>
-        }
 
     </>
   )
