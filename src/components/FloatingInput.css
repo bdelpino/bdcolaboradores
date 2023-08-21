@@ -1,0 +1,133 @@
+:root {
+    --background-label: #B0BEC5;
+    --border-input: #B0BEC5;
+}
+
+/* CHROME, SAFARI, EDGE, OPERA */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* FIREFOX */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Contenedor de input */
+.box-floating-input {
+    position: relative;
+    /* width: 250px; */
+    display: flex;
+}
+
+/* --- Init Base Input - Label --- */
+
+/* Definición input */
+.box-floating-input input {
+    width: 100%;
+    padding: .375rem;
+    border: 2px solid #B0BEC5;
+    background: #FFF;
+    border-radius: .3rem;
+    outline: none;
+    color: #000;
+    font-size: 1em;
+}
+
+/* input cuando es password*/
+.box-floating-input input[type=password] {
+    padding-right: 2.2rem;
+}
+
+/* definición span (Label) */
+.box-floating-input span {
+    position: absolute;
+    left: 0;
+    padding: .47rem .62rem;
+    pointer-events: none;
+    font-size: 1em;
+    color: #90A4AE;
+    text-transform: uppercase;
+    transition: .5s ease;
+}
+
+/* Definición span (Label) cuando el input tiene texto */
+.box-floating-input input:not(:placeholder-shown) ~ span,
+/* Definición span (Label) cuando el input tiene el foco */
+.box-floating-input input:focus ~ span {
+    color: #000;
+    transform: translateX(.62rem) translateY(-.47rem);
+    font-size: .65em;
+    padding: 0 .62rem;
+    letter-spacing: 0.2em;
+    border-radius: .12rem;
+    background: var(--background-label);
+}
+
+/* Definición input cuando tiene el foco */
+.box-floating-input input:focus,
+/* Definición input cuando el input no tiene foco y el input tiene texto */
+.box-floating-input input:not(:placeholder-shown):not(:focus),
+/* Definición input cuando el input no tiene texto, no tiene foco y hace hover */
+.box-floating-input input:is(:placeholder-shown):not(:focus):hover {
+    border: 2px solid var(--border-input);
+}
+
+/* Definición input cuando se hace hover, validación negativa y que no este en foco */
+.box-floating-input input:is(.notValidateInput):not(:focus):hover {
+    border: 2px solid var(--border-input) !important;
+} 
+
+/* --- End Base Input - Label --- */
+
+
+/*  --- Init Password Input --- */
+
+/* Definición de ojo (visualizar password) */
+.box-floating-input i {
+    transform: translateX(-.62rem);
+    margin-left: -1.25rem;
+    margin-top: .62rem;
+    cursor: pointer;
+    color: #B0BEC5;
+}
+
+/* Definición de ojo (visualizar password) Hover */
+.box-floating-input i:hover {
+    color: #78909C;
+}
+
+/*  --- End Password Input --- */
+
+
+/*  --- Init Validaciones --- */
+
+.validateInput {
+    border: 2px solid #4CAF50 !important;
+}
+
+/* Input validado que tiene foco, no tiene caracteres (Se eliminaron) (Input) */
+.validateInput:is(:placeholder-shown):focus,
+/* Input validado sin foco, no tiene caracteres (Se eliminaron) (Input) */
+.validateInput:is(:placeholder-shown),
+/* Input validación negativa (input) */
+.notValidateInput {
+    border: 2px solid #F44336 !important;
+}
+
+/* .notValidateLabel */
+/* Input con validación negativa que tiene foco (Label) */
+.notValidateInput:focus ~ span,
+/* Input con validación negativa que no tienen foco e input con texto (Label) */
+.notValidateInput:not(:placeholder-shown) ~ span {
+    background: #F44336 !important;
+}
+
+.validateLabel {
+    background: #4CAF50 !important;
+}
+
+
+/*  --- End Validaciones --- */

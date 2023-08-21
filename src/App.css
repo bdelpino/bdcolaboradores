@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Contenedor filter Listado*/
+.container-filter {
+  width: 20rem;
+  margin-right: auto;
+  padding-bottom: 1.5rem;
+}
