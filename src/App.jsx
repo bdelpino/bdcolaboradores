@@ -13,17 +13,17 @@ function App() {
 
   const [dbColaboradores, setDbColaboradores] = useState(BaseColaboradores)
   // Estado Alert
-  const [showAlert, setShowAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(null);
   // Estado de filtro búsqueda
   const [colaboradorFilter, setColaboradorFilter] = useState(""); 
 
   // Obtiene listado de colaboradores luego de pasar por el filtro
   const getFilterColaboradores = () => dbColaboradores.filter((colaborador) => (
-    colaborador.nombre.includes(colaboradorFilter)
-    || colaborador.correo.includes(colaboradorFilter)
-    || colaborador.edad.includes(colaboradorFilter)
-    || colaborador.cargo.includes(colaboradorFilter)
-    || colaborador.telefono.includes(colaboradorFilter)
+    colaborador.nombre.toLocaleLowerCase().includes(colaboradorFilter.toLocaleLowerCase())
+    || colaborador.correo.toLocaleLowerCase().includes(colaboradorFilter.toLocaleLowerCase())
+    || colaborador.edad.toLocaleLowerCase().includes(colaboradorFilter.toLocaleLowerCase())
+    || colaborador.cargo.toLocaleLowerCase().includes(colaboradorFilter.toLocaleLowerCase())
+    || colaborador.telefono.toLocaleLowerCase().includes(colaboradorFilter.toLocaleLowerCase())
     ))
 
   // Setea el valor actualizado en el filtro
@@ -44,7 +44,11 @@ function App() {
         <Formulario
         colaboradores={dbColaboradores}
         setdbc={setDbColaboradores}
+        stateSetShowAlert={ setShowAlert }
         ></Formulario>
+        
+        { showAlert == null ? undefined : <Alerts typeAlert={ showAlert }/>
+        }
 
     </>
   )

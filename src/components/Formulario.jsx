@@ -1,7 +1,7 @@
 //src/components/Formulario.jsx
 import {useState} from 'react'
 
-const Formulario = ({colaboradores,setdbc}) =>    {
+const Formulario = ({colaboradores,setdbc, stateSetShowAlert}) =>    {
 
                                 const [nombre,setNombre] = useState("")
                                 const [email,setEmail] = useState("")
@@ -20,6 +20,7 @@ const Formulario = ({colaboradores,setdbc}) =>    {
                                                                         
                                                                             {
                                                                                 console.log('Por favor completar los campos')
+                                                                                stateSetShowAlert(false);
                                                                             }
                                                                         
                                                                         else    {
@@ -39,6 +40,7 @@ const Formulario = ({colaboradores,setdbc}) =>    {
                                                                                     setEdad("")
                                                                                     setCargo("")
                                                                                     setTelefono("")
+                                                                                    stateSetShowAlert(true);
                                                                                 }
 
 
